@@ -1,7 +1,7 @@
 import math
 
 
-def separare_text(text):
+def separate_text(text):
 
     answer_list = []
 
@@ -21,6 +21,5 @@ def separare_text(text):
             answer_list[0] = answer_list[0][2:]
             answer_list[-1] = answer_list[-1][:-3]
             break
-
 
     return answer_list
