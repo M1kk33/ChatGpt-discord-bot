@@ -1,3 +1,4 @@
+import os
 import discord
 import requests
 from discord.ext import commands
@@ -5,14 +6,19 @@ from discord.ext import commands
 from secret_data import DISCORD_BOT_API_KEY
 from chatgpt_api import use_chatgpt
 from text_function import separate_text
+from dotenv import load_dotenv
 
+
+load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 bot = commands.Bot(command_prefix='/', intents=intents) 
 
-url = 'https://discord.com/api/v10/applications/1297182107679985664/commands'
+bot_application = os.getenv('bot_application')
+
+url = f'https://discord.com/api/v10/applications/{bot_application}/commands'
 
 json = {
     'name': 'ask',
